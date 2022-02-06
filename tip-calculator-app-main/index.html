@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    :root {
+      --Very-dark-cyan: hsl(183, 100%, 15%);
+      --Dark-grayish-cyan: hsl(186, 14%, 43%);
+      --Light-grayish-cyan: hsl(189, 41%, 97%);
+      --Light-grayish-green: hsl(148, 36%, 40%);
+      --input-gray: rgba(199, 199, 199, 0.486);
+      --White: hsl(0, 0%, 100%);
+    }
+
+    @font-face {
+      font-family: spaceMono;
+      src: url(font/SpaceMono-Regular.ttf);
+    }
+
+    body {
+      font-family: spaceMono;
+      background-color: var(--Light-grayish-cyan);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #top {
+      font-size: 20px;
+      position: absolute;
+      top: 10px;
+    }
+
+    .main-component {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 5em auto;
+      width: 80%;
+      height: auto;
+      padding: 30px;
+      background-color: var(--White);
+      border-radius: 15px;
+      box-shadow: 0px 0px 20px 1px var(--input-gray);
+    }
+
+    .left-component {
+      padding: 30px;
+      box-sizing: border-box;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    .left-component input {
+      width: 100%;
+      height: 40px;
+      background-color: var(--input-gray);
+      border: none;
+      border-radius: 5px;
+      padding-right: 20px;
+      padding-top: 8px;
+      box-sizing: border-box;
+      font-size: 20px;
+      text-align: right;
+    }
+
+    ::placeholder {
+      float: right;
+    }
+
+    .left-component button {
+      width: 156px;
+      height: 50px;
+      margin: 10px;
+      border: none;
+      background-color: var(--Very-dark-cyan);
+      border-radius: 5px;
+      font-size: 20px;
+      color: var(--White);
+    }
+
+    #secondary-input-icon-edittion {
+      position: relative;
+    }
+
+    #dollar-icon {
+      position: absolute;
+      top: 11px;
+      left: 10px;
+    }
+
+    #person-icon {
+      position: absolute;
+      top: 11px;
+      left: 10px;
+    }
+
+    #custome-input {
+      width: 156px;
+      height: 50px;
+      margin: 10px;
+      padding: 10px 35px;
+      border: none;
+      background-color: var(--input-gray);
+      border-radius: 5px;
+      font-size: 20px;
+
+    }
+
+
+
+
+
+    .right-component {
+      width: 50%;
+      height: auto;
+      background-color: var(--Very-dark-cyan);
+      border-radius: 20px;
+      padding: 50px;
+      box-sizing: border-box;
+      color: var(--White);
+      font-size: 30px;
+    }
+
+    .right-component div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .right-component div p {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    #person-1 {
+      color: var(--Light-grayish-green);
+      font-size: 20px;
+      position: relative;
+      bottom: 60px;
+    }
+
+    #person-2 {
+      color: var(--Light-grayish-green);
+      font-size: 20px;
+      position: relative;
+      bottom: 300px;
+    }
+
+    #amount {
+      color: var(--Light-grayish-green);
+      font-size: 35px;
+    }
+
+    #total {
+      color: var(--Light-grayish-green);
+      font-size: 35px;
+    }
+
+    #reset-btn {
+      border: none;
+      background-color: var(--Light-grayish-green);
+      width: 100%;
+      height: 15%;
+      margin-top: 0px;
+      border-radius: 10px;
+    }
+
+    #total-paraghraph {
+      margin-top: 70px;
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    @media screen and (max-width: 1129px) {
+      .left-component button {
+        width: 156px;
+        height: 50px;
+        margin: 5px;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+
+      .right-component {
+        padding: 30px;
+        font-size: 20px;
+      }
+
+      #person-1 {
+        font-size: 20px;
+        position: relative;
+        bottom: 80px;
+      }
+
+      #person-2 {
+        font-size: 20px;
+        position: relative;
+        bottom: 320px;
+      }
+
+      #reset-btn {
+        width: 100%;
+        height: 10%;
+        border-radius: 10px;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      .left-component {
+        padding: 30px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .right-component {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+
+      #reset-btn {
+        height: 70px;
+        margin-top: 0;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .left-component {
+        padding: 0px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .right-component {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        margin-top: 20px;
+        box-sizing: border-box;
+        font-size: 20px;
+      }
+
+      .main-component {
+        width: 100%;
+        padding: 20px;
+      }
+
+      .left-component button {
+        width: 130px;
+        height: 50px;
+        margin: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+
+      #custome-input {
+        width: 130px;
+        height: 50px;
+        margin: 10px;
+        padding: 10px 20px;
+      }
+
+      #person-1 {
+        font-size: 15px;
+        position: relative;
+        bottom: 60px;
+      }
+
+      #person-2 {
+        font-size: 15px;
+        position: relative;
+        bottom: 280px;
+      }
+
+      #amount {
+        color: var(--Light-grayish-green);
+        font-size: 30px;
+      }
+
+      #total {
+        color: var(--Light-grayish-green);
+        font-size: 30px;
+      }
+
+      #reset-btn {
+        height: 50px;
+      }
+    }
+
+    @media screen and (min-width: 1851px){
+      .attribution {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<!------------------------------------------------------------------->
+
+<body>
+  <div class="main-component">
+    <p id="top">S L P I <br> T T E R</p>
+
+
+    <div class="left-component">
+      <label>Bill</label>
+      <div id="secondary-input-icon-edittion">
+        <img id="dollar-icon" src="images/icon-dollar.svg" alt="dollar icon">
+        <input id="bill" type="number" placeholder="0">
+      </div>
+      <br>
+      <p>Select Tip %</p>
+      <div>
+        <button id="5percent">5%</button>
+        <button id="10percent">10%</button>
+        <button id="15percent">15%</button>
+        <button id="25percent">25%</button>
+        <button id="50percent">50%</button>
+        <input type="number" id="custome-input" placeholder="custome"></input>
+      </div>
+      <br>
+      <label>Number of People</label>
+      <div id="secondary-input-icon-edittion">
+        <img id="person-icon" src="images/icon-person.svg" alt="person icon">
+        <input id="NOP" type="number" placeholder="0">
+      </div>
+    </div>
+
+    <!--------------------------------------------->
+    <div class="right-component">
+      <div>
+        <p>Tip Amount</p><br>
+        <p id="amount">$0.00</p>
+      </div>
+
+      <div id="total-paraghraph">
+        <p>Total</p><br>
+        <p id="total">$0.00</p>
+      </div>
+
+      <p id="person-1">
+        / person
+      </p>
+      <p id="person-2">
+        / person
+      </p>
+
+      <button id="reset-btn" type="reset">RESET</button>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/hosseinrmt">Hossein rahmati</a>.
+    <script src="script.js"></script>
+  </div>
+</body>
+
+</html>
