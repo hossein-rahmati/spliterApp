@@ -6,4 +6,4 @@ I use HTML, CSS and Javascript in my project.
 
 my Most challenge was in Responsibility of page.
 
-Maybe I will add some feature to my project like hovering style on the buttons
+you can also see project online on https://hosseinrmt.github.io/spliterApp/
